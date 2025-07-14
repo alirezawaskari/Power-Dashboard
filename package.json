@@ -1,0 +1,24 @@
+{
+  "name": "pd",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "backend": "turbo run --scope=backend",
+    "cms": "turbo run --scope=cms",
+    "frontend": "turbo run --scope=frontend"
+  },
+  "keywords": [
+    "ReactJS",
+    "NestJS",
+    "Strapi",
+    "cms",
+    "dashboard"
+  ],
+  "author": "alirezAWAskari",
+  "license": "MIT",
+  "resolutions": {
+    "autoprefixer": "10.4.5"
+  },
+  "packageManager": "pnpm@10.13.1"
+}

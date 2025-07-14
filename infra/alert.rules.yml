@@ -1,0 +1,11 @@
+groups:
+- name: example-alerts
+  rules:
+  - alert: HighCPUUsage
+    expr: process_cpu_seconds_total > 80
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: "High CPU usage detected"
+      description: "CPU usage is above 80% for more than 2 minutes."

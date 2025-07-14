@@ -1,0 +1,69 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+
+    - name: Install pnpm
+      run: npm install -g pnpm
+
+    - name: Install dependencies for frontend
+      working-directory: ./apps/frontend
+      run: pnpm install
+
+    - name: Build frontend
+      working-directory: ./apps/frontend
+      run: pnpm run build
+
+    - name: Install dependencies for backend
+      working-directory: ./apps/backend
+      run: pnpm install
+
+    - name: Build backend
+      working-directory: ./apps/backend
+      run: pnpm run build
+
+    - name: Install dependencies for cms
+      working-directory: ./apps/cms
+      run: pnpm install
+
+    - name: Build cms
+      working-directory: ./apps/cms
+      run: pnpm run build
+
+    - name: Build Docker images
+      run: |
+        docker build -t your-registry/frontend ./apps/frontend
+        docker build -t your-registry/backend ./apps/backend
+        docker build -t your-registry/cms ./apps/cms
+
+    - name: Push Docker images
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        docker push your-registry/frontend
+        docker push your-registry/backend
+        docker push your-registry/cms
+
+    - name: Deploy to Kubernetes
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+      run: |
+        echo "$KUBE_CONFIG_DATA" | base64 --decode > kubeconfig
+        kubectl --kubeconfig=kubeconfig apply -f infra/k8s/
