@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "meters",
+  "info": {
+    "singularName": "meter",
+    "pluralName": "meters",
+    "displayName": "Meter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Current": {
+      "type": "decimal",
+      "required": true
+    },
+    "Voltage": {
+      "type": "decimal",
+      "required": true,
+      "default": 220
+    },
+    "Power": {
+      "type": "decimal"
+    },
+    "RecordTime": {
+      "type": "datetime",
+      "required": true
+    },
+    "User": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "Meters"
+    }
+  }
+}

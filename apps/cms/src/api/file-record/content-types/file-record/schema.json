@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "file_records",
+  "info": {
+    "singularName": "file-record",
+    "pluralName": "file-records",
+    "displayName": "FileRecord"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Folder": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::directory.directory",
+      "inversedBy": "Files"
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "media",
+        "document",
+        "archive",
+        "executable",
+        "other"
+      ]
+    },
+    "Mime": {
+      "type": "string",
+      "required": true
+    },
+    "Ext": {
+      "type": "string"
+    },
+    "Size": {
+      "type": "decimal"
+    },
+    "Hash": {
+      "type": "string",
+      "required": true
+    },
+    "URL": {
+      "type": "string",
+      "required": true
+    },
+    "previewURL": {
+      "type": "string"
+    },
+    "Metadata": {
+      "type": "json"
+    },
+    "Owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "Files"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "application_settings",
+  "info": {
+    "singularName": "application-setting",
+    "pluralName": "application-settings",
+    "displayName": "ApplicationSetting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "setting": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "value": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

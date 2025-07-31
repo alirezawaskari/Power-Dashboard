@@ -1,0 +1,236 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model application_settings {
+  id                                                          Int          @id @default(autoincrement())
+  document_id                                                 String?      @db.VarChar(255)
+  setting                                                     String?      @db.VarChar(255)
+  value                                                       String?
+  created_at                                                  DateTime?    @db.Timestamp(6)
+  updated_at                                                  DateTime?    @db.Timestamp(6)
+  published_at                                                DateTime?    @db.Timestamp(6)
+  created_by_id                                               Int?
+  updated_by_id                                               Int?
+  locale                                                      String?      @db.VarChar(255)
+  admin_users_application_settings_created_by_idToadmin_users admin_users? @relation("application_settings_created_by_idToadmin_users", fields: [created_by_id], references: [id], onUpdate: NoAction, map: "application_settings_created_by_id_fk")
+  admin_users_application_settings_updated_by_idToadmin_users admin_users? @relation("application_settings_updated_by_idToadmin_users", fields: [updated_by_id], references: [id], onUpdate: NoAction, map: "application_settings_updated_by_id_fk")
+
+  @@index([created_by_id], map: "application_settings_created_by_id_fk")
+  @@index([document_id, locale, published_at], map: "application_settings_documents_idx")
+  @@index([updated_by_id], map: "application_settings_updated_by_id_fk")
+}
+
+model directories {
+  id                                                                          Int                       @id @default(autoincrement())
+  document_id                                                                 String?                   @db.VarChar(255)
+  created_at                                                                  DateTime?                 @db.Timestamp(6)
+  updated_at                                                                  DateTime?                 @db.Timestamp(6)
+  published_at                                                                DateTime?                 @db.Timestamp(6)
+  created_by_id                                                               Int?
+  updated_by_id                                                               Int?
+  locale                                                                      String?                   @db.VarChar(255)
+  name                                                                        String?                   @db.VarChar(255)
+  path                                                                        String?                   @db.VarChar(255)
+  admin_users_directories_created_by_idToadmin_users                          admin_users?              @relation("directories_created_by_idToadmin_users", fields: [created_by_id], references: [id], onUpdate: NoAction, map: "directories_created_by_id_fk")
+  admin_users_directories_updated_by_idToadmin_users                          admin_users?              @relation("directories_updated_by_idToadmin_users", fields: [updated_by_id], references: [id], onUpdate: NoAction, map: "directories_updated_by_id_fk")
+  directories_parent_lnk_directories_parent_lnk_directory_idTodirectories     directories_parent_lnk[]  @relation("directories_parent_lnk_directory_idTodirectories")
+  directories_parent_lnk_directories_parent_lnk_inv_directory_idTodirectories directories_parent_lnk[]  @relation("directories_parent_lnk_inv_directory_idTodirectories")
+  file_records_folder_lnk                                                     file_records_folder_lnk[]
+
+  @@index([created_by_id], map: "directories_created_by_id_fk")
+  @@index([document_id, locale, published_at], map: "directories_documents_idx")
+  @@index([updated_by_id], map: "directories_updated_by_id_fk")
+}
+
+model directories_parent_lnk {
+  id                                                               Int          @id @default(autoincrement())
+  directory_id                                                     Int?
+  inv_directory_id                                                 Int?
+  directory_ord                                                    Float?
+  directories_directories_parent_lnk_directory_idTodirectories     directories? @relation("directories_parent_lnk_directory_idTodirectories", fields: [directory_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directories_parent_lnk_fk")
+  directories_directories_parent_lnk_inv_directory_idTodirectories directories? @relation("directories_parent_lnk_inv_directory_idTodirectories", fields: [inv_directory_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "directories_parent_lnk_ifk")
+
+  @@unique([directory_id, inv_directory_id], map: "directories_parent_lnk_uq")
+  @@index([directory_id], map: "directories_parent_lnk_fk")
+  @@index([inv_directory_id], map: "directories_parent_lnk_ifk")
+  @@index([directory_ord], map: "directories_parent_lnk_oifk")
+}
+
+model file_records {
+  id                                                  Int                       @id @default(autoincrement())
+  document_id                                         String?                   @db.VarChar(255)
+  created_at                                          DateTime?                 @db.Timestamp(6)
+  updated_at                                          DateTime?                 @db.Timestamp(6)
+  published_at                                        DateTime?                 @db.Timestamp(6)
+  created_by_id                                       Int?
+  updated_by_id                                       Int?
+  locale                                              String?                   @db.VarChar(255)
+  name                                                String?                   @db.VarChar(255)
+  type                                                String?                   @db.VarChar(255)
+  mime                                                String?                   @db.VarChar(255)
+  ext                                                 String?                   @db.VarChar(255)
+  size                                                Decimal?                  @db.Decimal(10, 2)
+  hash                                                String?                   @db.VarChar(255)
+  url                                                 String?                   @db.VarChar(255)
+  preview_url                                         String?                   @db.VarChar(255)
+  metadata                                            Json?
+  admin_users_file_records_created_by_idToadmin_users admin_users?              @relation("file_records_created_by_idToadmin_users", fields: [created_by_id], references: [id], onUpdate: NoAction, map: "file_records_created_by_id_fk")
+  admin_users_file_records_updated_by_idToadmin_users admin_users?              @relation("file_records_updated_by_idToadmin_users", fields: [updated_by_id], references: [id], onUpdate: NoAction, map: "file_records_updated_by_id_fk")
+  file_records_folder_lnk                             file_records_folder_lnk[]
+  file_records_owner_lnk                              file_records_owner_lnk[]
+
+  @@index([created_by_id], map: "file_records_created_by_id_fk")
+  @@index([document_id, locale, published_at], map: "file_records_documents_idx")
+  @@index([updated_by_id], map: "file_records_updated_by_id_fk")
+}
+
+model file_records_folder_lnk {
+  id              Int           @id @default(autoincrement())
+  file_record_id  Int?
+  directory_id    Int?
+  file_record_ord Float?
+  file_records    file_records? @relation(fields: [file_record_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "file_records_folder_lnk_fk")
+  directories     directories?  @relation(fields: [directory_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "file_records_folder_lnk_ifk")
+
+  @@unique([file_record_id, directory_id], map: "file_records_folder_lnk_uq")
+  @@index([file_record_id], map: "file_records_folder_lnk_fk")
+  @@index([directory_id], map: "file_records_folder_lnk_ifk")
+  @@index([file_record_ord], map: "file_records_folder_lnk_oifk")
+}
+
+model file_records_owner_lnk {
+  id              Int           @id @default(autoincrement())
+  file_record_id  Int?
+  user_id         Int?
+  file_record_ord Float?
+  file_records    file_records? @relation(fields: [file_record_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "file_records_owner_lnk_fk")
+  up_users        up_users?     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "file_records_owner_lnk_ifk")
+
+  @@unique([file_record_id, user_id], map: "file_records_owner_lnk_uq")
+  @@index([file_record_id], map: "file_records_owner_lnk_fk")
+  @@index([user_id], map: "file_records_owner_lnk_ifk")
+  @@index([file_record_ord], map: "file_records_owner_lnk_oifk")
+}
+
+model i18n_locale {
+  id                                                 Int          @id @default(autoincrement())
+  document_id                                        String?      @db.VarChar(255)
+  name                                               String?      @db.VarChar(255)
+  code                                               String?      @db.VarChar(255)
+  created_at                                         DateTime?    @db.Timestamp(6)
+  updated_at                                         DateTime?    @db.Timestamp(6)
+  published_at                                       DateTime?    @db.Timestamp(6)
+  created_by_id                                      Int?
+  updated_by_id                                      Int?
+  locale                                             String?      @db.VarChar(255)
+  admin_users_i18n_locale_created_by_idToadmin_users admin_users? @relation("i18n_locale_created_by_idToadmin_users", fields: [created_by_id], references: [id], onUpdate: NoAction, map: "i18n_locale_created_by_id_fk")
+  admin_users_i18n_locale_updated_by_idToadmin_users admin_users? @relation("i18n_locale_updated_by_idToadmin_users", fields: [updated_by_id], references: [id], onUpdate: NoAction, map: "i18n_locale_updated_by_id_fk")
+
+  @@index([created_by_id], map: "i18n_locale_created_by_id_fk")
+  @@index([document_id, locale, published_at], map: "i18n_locale_documents_idx")
+  @@index([updated_by_id], map: "i18n_locale_updated_by_id_fk")
+}
+
+model meters {
+  id                                            Int               @id @default(autoincrement())
+  document_id                                   String?           @db.VarChar(255)
+  current                                       Decimal?          @db.Decimal(10, 2)
+  voltage                                       Decimal?          @db.Decimal(10, 2)
+  power                                         Decimal?          @db.Decimal(10, 2)
+  record_time                                   DateTime?         @db.Timestamp(6)
+  created_at                                    DateTime?         @db.Timestamp(6)
+  updated_at                                    DateTime?         @db.Timestamp(6)
+  published_at                                  DateTime?         @db.Timestamp(6)
+  created_by_id                                 Int?
+  updated_by_id                                 Int?
+  locale                                        String?           @db.VarChar(255)
+  admin_users_meters_created_by_idToadmin_users admin_users?      @relation("meters_created_by_idToadmin_users", fields: [created_by_id], references: [id], onUpdate: NoAction, map: "meters_created_by_id_fk")
+  admin_users_meters_updated_by_idToadmin_users admin_users?      @relation("meters_updated_by_idToadmin_users", fields: [updated_by_id], references: [id], onUpdate: NoAction, map: "meters_updated_by_id_fk")
+  meters_user_lnk                               meters_user_lnk[]
+
+  @@index([created_by_id], map: "meters_created_by_id_fk")
+  @@index([document_id, locale, published_at], map: "meters_documents_idx")
+  @@index([updated_by_id], map: "meters_updated_by_id_fk")
+}
+
+model meters_user_lnk {
+  id        Int       @id @default(autoincrement())
+  meter_id  Int?
+  user_id   Int?
+  meter_ord Float?
+  meters    meters?   @relation(fields: [meter_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "meters_user_lnk_fk")
+  up_users  up_users? @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "meters_user_lnk_ifk")
+
+  @@unique([meter_id, user_id], map: "meters_user_lnk_uq")
+  @@index([meter_id], map: "meters_user_lnk_fk")
+  @@index([user_id], map: "meters_user_lnk_ifk")
+  @@index([meter_ord], map: "meters_user_lnk_oifk")
+}
+
+model up_users {
+  id                                              Int                      @id @default(autoincrement())
+  document_id                                     String?                  @db.VarChar(255)
+  username                                        String?                  @db.VarChar(255)
+  email                                           String?                  @db.VarChar(255)
+  provider                                        String?                  @db.VarChar(255)
+  password                                        String?                  @db.VarChar(255)
+  reset_password_token                            String?                  @db.VarChar(255)
+  confirmation_token                              String?                  @db.VarChar(255)
+  confirmed                                       Boolean?
+  blocked                                         Boolean?
+  created_at                                      DateTime?                @db.Timestamp(6)
+  updated_at                                      DateTime?                @db.Timestamp(6)
+  published_at                                    DateTime?                @db.Timestamp(6)
+  created_by_id                                   Int?
+  updated_by_id                                   Int?
+  locale                                          String?                  @db.VarChar(255)
+  uuid                                            String?                  @db.VarChar(255)
+  file_records_owner_lnk                          file_records_owner_lnk[]
+  meters_user_lnk                                 meters_user_lnk[]
+  admin_users_up_users_created_by_idToadmin_users admin_users?             @relation("up_users_created_by_idToadmin_users", fields: [created_by_id], references: [id], onUpdate: NoAction, map: "up_users_created_by_id_fk")
+  admin_users_up_users_updated_by_idToadmin_users admin_users?             @relation("up_users_updated_by_idToadmin_users", fields: [updated_by_id], references: [id], onUpdate: NoAction, map: "up_users_updated_by_id_fk")
+  up_users_profile_lnk                            up_users_profile_lnk[]
+  up_users_role_lnk                               up_users_role_lnk[]
+
+  @@index([created_by_id], map: "up_users_created_by_id_fk")
+  @@index([document_id, locale, published_at], map: "up_users_documents_idx")
+  @@index([updated_by_id], map: "up_users_updated_by_id_fk")
+}
+
+model up_users_profile_lnk {
+  id              Int            @id @default(autoincrement())
+  user_id         Int?
+  user_profile_id Int?
+  up_users        up_users?      @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "up_users_profile_lnk_fk")
+  user_profiles   user_profiles? @relation(fields: [user_profile_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "up_users_profile_lnk_ifk")
+
+  @@unique([user_id, user_profile_id], map: "up_users_profile_lnk_uq")
+  @@index([user_id], map: "up_users_profile_lnk_fk")
+  @@index([user_profile_id], map: "up_users_profile_lnk_ifk")
+}
+
+model user_profiles {
+  id                                                   Int                    @id @default(autoincrement())
+  document_id                                          String?                @db.VarChar(255)
+  name                                                 String?                @db.VarChar(255)
+  created_at                                           DateTime?              @db.Timestamp(6)
+  updated_at                                           DateTime?              @db.Timestamp(6)
+  published_at                                         DateTime?              @db.Timestamp(6)
+  created_by_id                                        Int?
+  updated_by_id                                        Int?
+  locale                                               String?                @db.VarChar(255)
+  up_users_profile_lnk                                 up_users_profile_lnk[]
+  admin_users_user_profiles_created_by_idToadmin_users admin_users?           @relation("user_profiles_created_by_idToadmin_users", fields: [created_by_id], references: [id], onUpdate: NoAction, map: "user_profiles_created_by_id_fk")
+  admin_users_user_profiles_updated_by_idToadmin_users admin_users?           @relation("user_profiles_updated_by_idToadmin_users", fields: [updated_by_id], references: [id], onUpdate: NoAction, map: "user_profiles_updated_by_id_fk")
+
+  @@index([created_by_id], map: "user_profiles_created_by_id_fk")
+  @@index([document_id, locale, published_at], map: "user_profiles_documents_idx")
+  @@index([updated_by_id], map: "user_profiles_updated_by_id_fk")
+}
