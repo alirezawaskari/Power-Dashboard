@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{DeviceController, TicketController, SettingsController, LogsController, IngestController};
+use App\Http\Controllers\{DeviceController, TicketController, SettingsController, LogsController, IngestController, NotificationController};
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +22,20 @@ Route::middleware(['scopes:tickets:read'])->get('/tickets', [TicketController::c
 Route::middleware(['scopes:tickets:read'])->get('/tickets/{id}', [TicketController::class, 'show']);
 Route::middleware(['scopes:settings:read'])->get('/settings/resolve', [SettingsController::class, 'resolve']);
 Route::middleware(['scopes:devices:read'])->get('/logs', [LogsController::class, 'index']);
+
+// Ticket management (CRUD + live chat)
+Route::middleware(['scopes:tickets:write'])->group(function () {
+    Route::post('/tickets', [TicketController::class, 'store']);
+    Route::put('/tickets/{id}', [TicketController::class, 'update']);
+    Route::post('/tickets/{id}/messages', [TicketController::class, 'sendMessage']);
+});
+
+// Notifications
+Route::middleware(['scopes:notifications:read'])->group(function () {
+    Route::get('/notifications', [NotificationController::class, 'index']);
+    Route::get('/notifications/unread', [NotificationController::class, 'unread']);
+    Route::patch('/notifications/{id}/read', [NotificationController::class, 'markAsRead']);
+});
 
 
 // Device ingest (device header auth + rate limit)

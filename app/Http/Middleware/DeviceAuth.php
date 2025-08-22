@@ -31,24 +31,24 @@ final class DeviceAuth
         $secret = $request->header('X-Device-Secret') ?? $request->header('XDeviceSecret');
 
         if (!$devId || !$secret) {
-            $this->log('security.auth_failed_device', ['message' => 'missing headers']);
+            $this->log('auth.failed_device', ['message' => 'missing headers']);
             return response()->json(['error' => 'unauthorized', 'message' => 'Missing device headers'], 401);
         }
 
         /** @var Device|null $device */
         $device = Device::query()->where('uuid', $devId)->first();
         if (!$device) {
-            $this->log('security.auth_failed_device', ['device_id' => $devId, 'message' => 'unknown device']);
+            $this->log('auth.failed_device', ['device_id' => $devId, 'message' => 'unknown device']);
             return response()->json(['error' => 'unauthorized'], 401);
         }
 
         if ($device->isDecommissioned()) {
-            $this->log('security.permission_denied', ['device_id' => $device->id, 'message' => 'decommissioned']);
+            $this->log('permission.denied', ['device_id' => $device->id, 'message' => 'decommissioned']);
             return response()->json(['error' => 'forbidden', 'message' => 'Device decommissioned'], 403);
         }
 
         if (!Hash::check($secret, $device->secret_hash)) {
-            $this->log('security.auth_failed_device', ['device_id' => $device->id, 'message' => 'bad secret']);
+            $this->log('auth.failed_device', ['device_id' => $device->id, 'message' => 'bad secret']);
             return response()->json(['error' => 'unauthorized', 'message' => 'Bad secret'], 401);
         }
 

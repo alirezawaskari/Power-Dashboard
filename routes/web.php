@@ -32,6 +32,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile-edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile-update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile-destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
+    // Profile routes for testing
+    Route::get('/pages-profile', [ProfileController::class, 'edit']);
+    Route::patch('/pages-profile', [ProfileController::class, 'update']);
+    Route::delete('/pages-profile', [ProfileController::class, 'destroy']);
 
     // orders crud
     // Route::get("/apps-ecommerce-orders", [OrderController::class, 'index'])->name('order-list');

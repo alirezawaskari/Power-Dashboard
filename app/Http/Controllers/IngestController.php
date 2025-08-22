@@ -46,7 +46,8 @@ final class IngestController extends Controller
                 'current' => $data['current'],
                 'voltage' => $data['voltage'],
                 'power' => $power,
-                'attributes' => $data['attributes'] ?? [],
+                'phase' => $data['attributes']['phase'] ?? null,
+                'sampling_ms' => $data['attributes']['sample_ms'] ?? 1000,
             ]);
 
             // presence

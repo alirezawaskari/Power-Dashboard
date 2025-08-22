@@ -46,6 +46,10 @@ class IngestTest extends TestCase
     public function test_ingest_rejects_bad_secret(): void
     {
         $device = Device::first();
+        $secret = 'device-secret-123'; // matches seeder
+        $device->secret_hash = Hash::make($secret);
+        $device->save();
+        
         $payload = [
             'ts' => now()->toIso8601String(),
             'current' => 3.2,

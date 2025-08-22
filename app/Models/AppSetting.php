@@ -31,4 +31,45 @@ class AppSetting extends Model
     {
         return $q->where('scope_type', SettingScope::Global)->whereNull('scope_id');
     }
+
+    // Resolve setting with precedence: Device > User > Global
+    public static function resolve(string $key, ?string $deviceId = null, ?string $userId = null): mixed
+    {
+        // Try device-specific setting first
+        if ($deviceId) {
+            $setting = static::forDevice($deviceId)->where('key', $key)->first();
+            if ($setting) {
+                return $setting->value;
+            }
+        }
+
+        // Try user-specific setting
+        if ($userId) {
+            $setting = static::forUser($userId)->where('key', $key)->first();
+            if ($setting) {
+                return $setting->value;
+            }
+        }
+
+        // Fall back to global setting
+        $setting = static::global()->where('key', $key)->first();
+        return $setting ? $setting->value : null;
+    }
+
+    // Set setting with scope
+    public static function set(string $key, mixed $value, SettingScope $scope, ?string $scopeId = null, ?string $updatedBy = null): self
+    {
+        return static::updateOrCreate(
+            [
+                'key' => $key,
+                'scope_type' => $scope,
+                'scope_id' => $scopeId,
+            ],
+            [
+                'value' => $value,
+                'updated_by' => $updatedBy,
+                'updated_at' => now(),
+            ]
+        );
+    }
 }

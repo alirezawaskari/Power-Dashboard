@@ -67,9 +67,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-    ];
-
-    protected $routeMiddleware = [
         'scopes' => \App\Http\Middleware\RequireScopes::class,
         'device.auth' => \App\Http\Middleware\DeviceAuth::class,
     ];

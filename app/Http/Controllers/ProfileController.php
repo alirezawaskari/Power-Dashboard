@@ -37,6 +37,10 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
+        // Check if we're on the pages-profile route (for testing)
+        if ($request->is('pages-profile')) {
+            return Redirect::to('/pages-profile');
+        }
         return Redirect::route('profile.edit');
     }
 

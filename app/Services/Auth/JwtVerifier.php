@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use UnexpectedValueException;
 
-final class JwtVerifier
+class JwtVerifier
 {
     public function __construct(
         private readonly string $issuer,
