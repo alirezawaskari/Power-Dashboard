@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\OrderController;
+// use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VelzonRoutesController;
 use Illuminate\Support\Facades\Route;
@@ -32,12 +32,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile-edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile-update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile-destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
     // orders crud
-    Route::get("/apps-ecommerce-orders", [OrderController::class, 'index'])->name('order-list');
-    Route::post("order-create", [OrderController::class, 'store'])->name('order-create');
-    Route::post("order-update", [OrderController::class, 'update'])->name('order-update');
-    Route::post("order-delete", [OrderController::class, 'destroy'])->name('order-delete');
+    // Route::get("/apps-ecommerce-orders", [OrderController::class, 'index'])->name('order-list');
+    // Route::post("order-create", [OrderController::class, 'store'])->name('order-create');
+    // Route::post("order-update", [OrderController::class, 'update'])->name('order-update');
+    // Route::post("order-delete", [OrderController::class, 'destroy'])->name('order-delete');
 
     Route::controller(VelzonRoutesController::class)->group(function () {
 
@@ -181,7 +181,7 @@ Route::middleware('auth')->group(function () {
         Route::get("/pages-team", "pages_team");
         Route::get("/pages-timeline", "pages_timeline");
         Route::get("/pages-faqs", "pages_faqs");
-        Route::get("/pages-gallery", "pages_gallery");   
+        Route::get("/pages-gallery", "pages_gallery");
         Route::get("/pages-pricing", "pages_pricing");
         Route::get("/pages-sitemap", "pages_sitemap");
         Route::get("/pages-search-results", "pages_search_results");
@@ -219,16 +219,16 @@ Route::middleware('auth')->group(function () {
         Route::get("/auth-404-basic", "auth_404_basic");
         Route::get("/auth-404-cover", "auth_404_cover");
         Route::get("/auth-404-alt", "auth_404_alt");
-        Route::get("/auth-500", "auth_500");       
+        Route::get("/auth-500", "auth_500");
         Route::get("/landing", "landing");
         Route::get("/nft-landing", "nft_landing");
         Route::get("/job-landing", "job_landing");
         Route::get("/auth-pass-change-basic", "auth_pass_change_basic");
         Route::get("/auth-pass-change-cover", "auth_pass_change_cover");
-        Route::get("/auth-offline", "auth_offline");      
+        Route::get("/auth-offline", "auth_offline");
         Route::get("/pages-maintenance", "pages_maintenance");
         Route::get("/pages-coming-soon", "pages_coming_soon");
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

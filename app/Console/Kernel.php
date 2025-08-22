@@ -12,7 +12,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Flip devices offline when SLA exceeded
+        $schedule->job(new \App\Jobs\OfflineSweeper)->everyMinute();
+
+        // Generate rollups every 5 minutes (or run as a nightly backfill job)
+        $schedule->command('telemetry:rollup-5m')->everyFiveMinutes();
+
+        // Retention policies
+        $schedule->command('telemetry:prune-raw')->dailyAt('02:10');
+        $schedule->command('logs:prune-archive')->dailyAt('02:40');
     }
 
     /**
@@ -20,7 +28,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

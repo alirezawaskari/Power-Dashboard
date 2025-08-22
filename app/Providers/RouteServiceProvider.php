@@ -28,6 +28,14 @@ class RouteServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
+        RateLimiter::for('ingest', function ($request) {
+            $deviceId = $request->attributes->get('device')?->id ?? ($request->header('X-Device-ID') ?? $request->header('XDeviceID') ?? $request->ip());
+            return [
+                Limit::perMinute((int) env('INGEST_RPM', 60))->by($deviceId),
+                Limit::perMinute((int) env('INGEST_BURST_RPM', 120))->by($deviceId),
+            ];
+        });
+
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')
