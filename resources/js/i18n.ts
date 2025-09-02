@@ -10,6 +10,7 @@ import translationENG from "../locales/en.json";
 import translationCN from "../locales/ch.json";
 import translationFR from "../locales/fr.json";
 import translationAR from "../locales/ar.json";
+import translationFA from "../locales/fa.json";
 
 
 // the translations
@@ -38,6 +39,9 @@ const resources = {
   ar: {
     translation: translationAR,
   },
+  fa: {
+    translation: translationFA,
+  },
 };
 
 const language = localStorage.getItem("I18N_LANGUAGE");
@@ -53,7 +57,7 @@ i18n
     lng: localStorage.getItem("I18N_LANGUAGE") || "en",
     fallbackLng: "en", // use en if detected lng is not available
 
-    keySeparator: false, // we do not use keys in form messages.welcome
+    keySeparator: ".", // we use dot notation for nested keys
 
     interpolation: {
       escapeValue: false, // react already safes from xss

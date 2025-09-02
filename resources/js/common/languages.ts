@@ -6,6 +6,7 @@ import flagrussia from "../../images/flags/russia.svg";
 import flagchina from "../../images/flags/china.svg";
 import flagfrench from "../../images/flags/french.svg";
 import flagarabic from "../../images/flags/ae.svg";
+import flagiran from "../../images/flags/ir.svg";
 
 
 const languages = {
@@ -40,6 +41,10 @@ const languages = {
   ar: {
     label: "Arabic",
     flag: flagarabic,
+  },
+  fa: {
+    label: "فارسی",
+    flag: flagiran,
   },
 }
 

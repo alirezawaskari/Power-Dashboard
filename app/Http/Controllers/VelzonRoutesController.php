@@ -11,676 +11,676 @@ class VelzonRoutesController extends Controller
 
     public function index()
     {
-        return Inertia::render('DashboardEcommerce/index');
+        return Inertia::render('templates/DashboardEcommerce/index');
     }
 
     public function dashboard_analytics()
     {
-        return Inertia::render('DashboardAnalytics/index');
+        return Inertia::render('templates/DashboardAnalytics/index');
     }
 
     public function dashboard_crm()
     {
-        return Inertia::render('DashboardCrm/index');
+        return Inertia::render('templates/DashboardCrm/index');
     }
 
     public function dashboard()
     {
-        return Inertia::render('DashboardEcommerce/index');
+        return Inertia::render('templates/DashboardEcommerce/index');
     }
 
     public function dashboard_crypto()
     {
-        return Inertia::render('DashboardCrypto/index');
+        return Inertia::render('templates/DashboardCrypto/index');
     }
 
     public function dashboard_projects()
     {
-        return Inertia::render('DashboardProject/index');
+        return Inertia::render('templates/DashboardProject/index');
     }
 
     public function dashboard_nft()
     {
-        return Inertia::render('DashboardNFT/index');
+        return Inertia::render('templates/DashboardNFT/index');
     }
 
     public function dashboard_job()
     {
-        return Inertia::render('DashboardJob/index');
+        return Inertia::render('templates/DashboardJob/index');
     }
 
     public function dashboard_blog()
     {
-        return Inertia::render('DashboardBlog/index');
+        return Inertia::render('templates/DashboardBlog/index');
     }
 
     // apps
 
     public function apps_calendar()
     {
-        return Inertia::render('Calendar/index');
+        return Inertia::render('templates/Calendar/index');
     }
 
     public function apps_calendar_month_grid()
     {
-        return Inertia::render('Calendar/monthGrid');
+        return Inertia::render('templates/Calendar/monthGrid');
     }
 
     public function apps_ecommerce_products()
     {
-        return Inertia::render('Ecommerce/EcommerceProducts/index');
+        return Inertia::render('templates/Ecommerce/EcommerceProducts/index');
     }
 
     public function apps_ecommerce_product_details()
     {
-        return Inertia::render('Ecommerce/EcommerceProducts/EcommerceProductDetail');
+        return Inertia::render('templates/Ecommerce/EcommerceProducts/EcommerceProductDetail');
     }
 
     public function apps_ecommerce_add_product()
     {
-        return Inertia::render('Ecommerce/EcommerceProducts/EcommerceAddProduct');
+        return Inertia::render('templates/Ecommerce/EcommerceProducts/EcommerceAddProduct');
     }
 
     public function apps_ecommerce_order_details()
     {
-        return Inertia::render('Ecommerce/EcommerceOrders/EcommerceOrderDetail');
+        return Inertia::render('templates/Ecommerce/EcommerceOrders/EcommerceOrderDetail');
     }
 
     public function apps_ecommerce_customers()
     {
-        return Inertia::render('Ecommerce/EcommerceCustomers/index');
+        return Inertia::render('templates/Ecommerce/EcommerceCustomers/index');
     }
 
     public function apps_ecommerce_cart()
     {
-        return Inertia::render('Ecommerce/EcommerceCart');
+        return Inertia::render('templates/Ecommerce/EcommerceCart');
     }
 
     public function apps_ecommerce_checkout()
     {
-        return Inertia::render('Ecommerce/EcommerceCheckout');
+        return Inertia::render('templates/Ecommerce/EcommerceCheckout');
     }
 
     public function apps_ecommerce_sellers()
     {
-        return Inertia::render('Ecommerce/EcommerceSellers/index');
+        return Inertia::render('templates/Ecommerce/EcommerceSellers/index');
     }
 
     public function apps_ecommerce_seller_details()
     {
-        return Inertia::render('Ecommerce/EcommerceSellers/EcommerceSellerDetail');
+        return Inertia::render('templates/Ecommerce/EcommerceSellers/EcommerceSellerDetail');
     }
 
     public function apps_file_manager()
     {
-        return Inertia::render('FileManager/index');
+        return Inertia::render('templates/FileManager/index');
     }
 
     public function apps_todo()
     {
-        return Inertia::render('ToDo/index');
+        return Inertia::render('templates/ToDo/index');
     }
 
     public function apps_chat()
     {
-        return Inertia::render('Chat/index');
+        return Inertia::render('templates/Chat/index');
     }
 
     public function apps_mailbox()
     {
-        return Inertia::render('EmailInbox/index');
+        return Inertia::render('templates/EmailInbox/index');
     }
 
     public function apps_email_basic()
     {
-        return Inertia::render('Email/EmailTemplates/BasicAction/index');
+        return Inertia::render('templates/Email/EmailTemplates/BasicAction/index');
     }
 
     public function apps_email_ecommerce()
     {
-        return Inertia::render('Email/EmailTemplates/EcommerceAction/index');
+        return Inertia::render('templates/Email/EmailTemplates/EcommerceAction/index');
     }
 
     public function apps_projects_list()
     {
-        return Inertia::render('Projects/ProjectList/index');
+        return Inertia::render('templates/Projects/ProjectList/index');
     }
 
     public function apps_projects_overview()
     {
-        return Inertia::render('Projects/ProjectOverview/index');
+        return Inertia::render('templates/Projects/ProjectOverview/index');
     }
 
     public function apps_projects_create()
     {
-        return Inertia::render('Projects/CreateProject/index');
+        return Inertia::render('templates/Projects/CreateProject/index');
     }
 
     public function apps_tasks_list_view()
     {
-        return Inertia::render('Tasks/TaskList/index');
+        return Inertia::render('templates/Tasks/TaskList/index');
     }
 
     public function apps_tasks_details()
     {
-        return Inertia::render('Tasks/TaskDetails/index');
+        return Inertia::render('templates/Tasks/TaskDetails/index');
     }
 
     public function apps_tasks_kanban()
     {
-        return Inertia::render('Tasks/KanbanBoard/index');
+        return Inertia::render('templates/Tasks/KanbanBoard/index');
     }
 
     public function apps_api_key()
     {
-        return Inertia::render('APIKey/index');
+        return Inertia::render('templates/APIKey/index');
     }
 
     public function apps_crm_contacts()
     {
-        return Inertia::render('Crm/CrmContacts');
+        return Inertia::render('templates/Crm/CrmContacts');
     }
 
     public function apps_crm_companies()
     {
-        return Inertia::render('Crm/CrmCompanies');
+        return Inertia::render('templates/Crm/CrmCompanies');
     }
 
     public function apps_crm_deals()
     {
-        return Inertia::render('Crm/CrmDeals/index');
+        return Inertia::render('templates/Crm/CrmDeals/index');
     }
 
     public function apps_crm_leads()
     {
-        return Inertia::render('Crm/CrmLeads/index');
+        return Inertia::render('templates/Crm/CrmLeads/index');
     }
 
     public function apps_invoices_list()
     {
-        return Inertia::render('Invoices/InvoiceList');
+        return Inertia::render('templates/Invoices/InvoiceList');
     }
 
     public function apps_invoices_details()
     {
-        return Inertia::render('Invoices/InvoiceDetails');
+        return Inertia::render('templates/Invoices/InvoiceDetails');
     }
 
     public function apps_invoices_create()
     {
-        return Inertia::render('Invoices/InvoiceCreate');
+        return Inertia::render('templates/Invoices/InvoiceCreate');
     }
 
     public function apps_tickets_list()
     {
-        return Inertia::render('SupportTickets/ListView/index');
+        return Inertia::render('templates/SupportTickets/ListView/index');
     }
 
     public function apps_tickets_details()
     {
-        return Inertia::render('SupportTickets/TicketsDetails/index');
+        return Inertia::render('templates/SupportTickets/TicketsDetails/index');
     }
 
     public function apps_crypto_transactions()
     {
-        return Inertia::render('Crypto/Transactions/index');
+        return Inertia::render('templates/Crypto/Transactions/index');
     }
 
     public function apps_crypto_buy_sell()
     {
-        return Inertia::render('Crypto/BuySell/index');
+        return Inertia::render('templates/Crypto/BuySell/index');
     }
 
     public function apps_crypto_orders()
     {
-        return Inertia::render('Crypto/CryptoOrder/index');
+        return Inertia::render('templates/Crypto/CryptoOrder/index');
     }
 
     public function apps_crypto_wallet()
     {
-        return Inertia::render('Crypto/MyWallet/index');
+        return Inertia::render('templates/Crypto/MyWallet/index');
     }
 
     public function apps_crypto_ico()
     {
-        return Inertia::render('Crypto/ICOList/index');
+        return Inertia::render('templates/Crypto/ICOList/index');
     }
 
     public function apps_crypto_kyc()
     {
-        return Inertia::render('Crypto/KYCVerification/index');
+        return Inertia::render('templates/Crypto/KYCVerification/index');
     }
 
     public function apps_nft_marketplace()
     {
-        return Inertia::render('NFTMarketplace/Marketplace/index');
+        return Inertia::render('templates/NFTMarketplace/Marketplace/index');
     }
 
     public function apps_nft_collections()
     {
-        return Inertia::render('NFTMarketplace/Collections/index');
+        return Inertia::render('templates/NFTMarketplace/Collections/index');
     }
 
     public function apps_nft_create()
     {
-        return Inertia::render('NFTMarketplace/CreateNFT/index');
+        return Inertia::render('templates/NFTMarketplace/CreateNFT/index');
     }
 
     public function apps_nft_creators()
     {
-        return Inertia::render('NFTMarketplace/Creators/index');
+        return Inertia::render('templates/NFTMarketplace/Creators/index');
     }
 
     public function apps_nft_explore()
     {
-        return Inertia::render('NFTMarketplace/ExploreNow/index');
+        return Inertia::render('templates/NFTMarketplace/ExploreNow/index');
     }
 
     public function apps_nft_item_details()
     {
-        return Inertia::render('NFTMarketplace/Itemdetails/index');
+        return Inertia::render('templates/NFTMarketplace/Itemdetails/index');
     }
 
     public function apps_nft_auction()
     {
-        return Inertia::render('NFTMarketplace/LiveAuction/index');
+        return Inertia::render('templates/NFTMarketplace/LiveAuction/index');
     }
 
     public function apps_nft_ranking()
     {
-        return Inertia::render('NFTMarketplace/Ranking/index');
+        return Inertia::render('templates/NFTMarketplace/Ranking/index');
     }
 
     public function apps_nft_wallet()
     {
-        return Inertia::render('NFTMarketplace/WalletConnect/index');
+        return Inertia::render('templates/NFTMarketplace/WalletConnect/index');
     }
 
     public function apps_job_statistics()
     {
-        return Inertia::render('Jobs/Statistics/index');
+        return Inertia::render('templates/Jobs/Statistics/index');
     }
 
     public function apps_job_lists()
     {
-        return Inertia::render('Jobs/JobList/List/index');
+        return Inertia::render('templates/Jobs/JobList/List/index');
     }
 
     public function apps_job_grid_lists()
     {
-        return Inertia::render('Jobs/JobList/Grid/index');
+        return Inertia::render('templates/Jobs/JobList/Grid/index');
     }
 
     public function apps_job_details()
     {
-        return Inertia::render('Jobs/JobList/Overview/index');
+        return Inertia::render('templates/Jobs/JobList/Overview/index');
     }
 
     public function apps_job_candidate_lists()
     {
-        return Inertia::render('Jobs/CandidateList/ListView/index');
+        return Inertia::render('templates/Jobs/CandidateList/ListView/index');
     }
 
     public function apps_job_candidate_grid()
     {
-        return Inertia::render('Jobs/CandidateList/GridView/index');
+        return Inertia::render('templates/Jobs/CandidateList/GridView/index');
     }
 
     public function apps_job_application()
     {
-        return Inertia::render('Jobs/Application/index');
+        return Inertia::render('templates/Jobs/Application/index');
     }
 
     public function apps_job_new()
     {
-        return Inertia::render('Jobs/NewJob/index');
+        return Inertia::render('templates/Jobs/NewJob/index');
     }
 
     public function apps_job_companies_lists()
     {
-        return Inertia::render('Jobs/CompaniesList/index');
+        return Inertia::render('templates/Jobs/CompaniesList/index');
     }
 
     public function apps_job_categories()
     {
-        return Inertia::render('Jobs/JobCategories/index');
+        return Inertia::render('templates/Jobs/JobCategories/index');
     }
 
     // charts
 
     public function charts_apex_line()
     {
-        return Inertia::render('Charts/ApexCharts/LineCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/LineCharts/index');
     }
 
     public function charts_apex_area()
     {
-        return Inertia::render('Charts/ApexCharts/AreaCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/AreaCharts/index');
     }
 
     public function charts_apex_column()
     {
-        return Inertia::render('Charts/ApexCharts/ColumnCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/ColumnCharts/index');
     }
 
     public function charts_apex_bar()
     {
-        return Inertia::render('Charts/ApexCharts/BarCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/BarCharts/index');
     }
 
     public function charts_apex_mixed()
     {
-        return Inertia::render('Charts/ApexCharts/MixedCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/MixedCharts/index');
     }
 
     public function charts_apex_timeline()
     {
-        return Inertia::render('Charts/ApexCharts/TimelineCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/TimelineCharts/index');
     }
 
     public function charts_apex_range_area()
     {
-        return Inertia::render('Charts/ApexCharts/RangeAreaCharts/Index');
+        return Inertia::render('templates/Charts/ApexCharts/RangeAreaCharts/Index');
     }
 
     public function charts_apex_funnel()
     {
-        return Inertia::render('Charts/ApexCharts/FunnelCharts/Index');
+        return Inertia::render('templates/Charts/ApexCharts/FunnelCharts/Index');
     }
 
     public function charts_apex_candlestick()
     {
-        return Inertia::render('Charts/ApexCharts/CandlestickChart/index');
+        return Inertia::render('templates/Charts/ApexCharts/CandlestickChart/index');
     }
 
     public function charts_apex_boxplot()
     {
-        return Inertia::render('Charts/ApexCharts/BoxplotCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/BoxplotCharts/index');
     }
 
     public function charts_apex_bubble()
     {
-        return Inertia::render('Charts/ApexCharts/BubbleChart/index');
+        return Inertia::render('templates/Charts/ApexCharts/BubbleChart/index');
     }
 
     public function charts_apex_scatter()
     {
-        return Inertia::render('Charts/ApexCharts/ScatterCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/ScatterCharts/index');
     }
 
     public function charts_apex_heatmap()
     {
-        return Inertia::render('Charts/ApexCharts/HeatmapCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/HeatmapCharts/index');
     }
 
     public function charts_apex_treemap()
     {
-        return Inertia::render('Charts/ApexCharts/TreemapCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/TreemapCharts/index');
     }
 
     public function charts_apex_pie()
     {
-        return Inertia::render('Charts/ApexCharts/PieCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/PieCharts/index');
     }
 
     public function charts_apex_radialbar()
     {
-        return Inertia::render('Charts/ApexCharts/RadialbarCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/RadialbarCharts/index');
     }
 
     public function charts_apex_radar()
     {
-        return Inertia::render('Charts/ApexCharts/RadarCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/RadarCharts/index');
     }
 
     public function charts_apex_polar()
     {
-        return Inertia::render('Charts/ApexCharts/PolarCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/PolarCharts/index');
     }
 
     public function charts_apex_slope()
     {
-        return Inertia::render('Charts/ApexCharts/SlopeCharts/index');
+        return Inertia::render('templates/Charts/ApexCharts/SlopeCharts/index');
     }
 
     public function charts_chartjs()
     {
-        return Inertia::render('Charts/ChartsJs/index');
+        return Inertia::render('templates/Charts/ChartsJs/index');
     }
 
     public function charts_echarts()
     {
-        return Inertia::render('Charts/ECharts/index');
+        return Inertia::render('templates/Charts/ECharts/index');
     }
 
     // ui
 
     public function ui_alerts()
     {
-        return Inertia::render('BaseUi/UiAlerts/UiAlerts');
+        return Inertia::render('templates/BaseUi/UiAlerts/UiAlerts');
     }
 
     public function ui_badges()
     {
-        return Inertia::render('BaseUi/UiBadges/UiBadges');
+        return Inertia::render('templates/BaseUi/UiBadges/UiBadges');
     }
 
     public function ui_buttons()
     {
-        return Inertia::render('BaseUi/UiButtons/UiButtons');
+        return Inertia::render('templates/BaseUi/UiButtons/UiButtons');
     }
 
     public function ui_colors()
     {
-        return Inertia::render('BaseUi/UiColors/UiColors');
+        return Inertia::render('templates/BaseUi/UiColors/UiColors');
     }
 
     public function ui_cards()
     {
-        return Inertia::render('BaseUi/UiCards/UiCards');
+        return Inertia::render('templates/BaseUi/UiCards/UiCards');
     }
 
     public function ui_carousel()
     {
-        return Inertia::render('BaseUi/UiCarousel/UiCarousel');
+        return Inertia::render('templates/BaseUi/UiCarousel/UiCarousel');
     }
 
     public function ui_dropdowns()
     {
-        return Inertia::render('BaseUi/UiDropdowns/UiDropdowns');
+        return Inertia::render('templates/BaseUi/UiDropdowns/UiDropdowns');
     }
 
     public function ui_grid()
     {
-        return Inertia::render('BaseUi/UiGrid/UiGrid');
+        return Inertia::render('templates/BaseUi/UiGrid/UiGrid');
     }
 
     public function ui_images()
     {
-        return Inertia::render('BaseUi/UiImages/UiImages');
+        return Inertia::render('templates/BaseUi/UiImages/UiImages');
     }
 
     public function ui_tabs()
     {
-        return Inertia::render('BaseUi/UiTabs/UiTabs');
+        return Inertia::render('templates/BaseUi/UiTabs/UiTabs');
     }
 
     public function ui_accordions()
     {
-        return Inertia::render('BaseUi/UiAccordion&Collapse/UiAccordion&Collapse');
+        return Inertia::render('templates/BaseUi/UiAccordion&Collapse/UiAccordion&Collapse');
     }
 
     public function ui_modals()
     {
-        return Inertia::render('BaseUi/UiModals/UiModals');
+        return Inertia::render('templates/BaseUi/UiModals/UiModals');
     }
 
     public function ui_offcanvas()
     {
-        return Inertia::render('BaseUi/UiOffcanvas/UiOffcanvas');
+        return Inertia::render('templates/BaseUi/UiOffcanvas/UiOffcanvas');
     }
 
     public function ui_placeholders()
     {
-        return Inertia::render('BaseUi/UiPlaceholders/UiPlaceholders');
+        return Inertia::render('templates/BaseUi/UiPlaceholders/UiPlaceholders');
     }
 
     public function ui_progress()
     {
-        return Inertia::render('BaseUi/UiProgress/UiProgress');
+        return Inertia::render('templates/BaseUi/UiProgress/UiProgress');
     }
 
     public function ui_notifications()
     {
-        return Inertia::render('BaseUi/UiNotifications/UiNotifications');
+        return Inertia::render('templates/BaseUi/UiNotifications/UiNotifications');
     }
 
     public function ui_media()
     {
-        return Inertia::render('BaseUi/UiMediaobject/UiMediaobject');
+        return Inertia::render('templates/BaseUi/UiMediaobject/UiMediaobject');
     }
 
     public function ui_embed_video()
     {
-        return Inertia::render('BaseUi/UiEmbedVideo/UiEmbedVideo');
+        return Inertia::render('templates/BaseUi/UiEmbedVideo/UiEmbedVideo');
     }
 
     public function ui_typography()
     {
-        return Inertia::render('BaseUi/UiTypography/UiTypography');
+        return Inertia::render('templates/BaseUi/UiTypography/UiTypography');
     }
 
     public function ui_lists()
     {
-        return Inertia::render('BaseUi/UiLists/UiLists');
+        return Inertia::render('templates/BaseUi/UiLists/UiLists');
     }
 
     public function ui_links()
     {
-        return Inertia::render('BaseUi/UiLinks/UiLinks');
+        return Inertia::render('templates/BaseUi/UiLinks/UiLinks');
     }
 
     public function ui_general()
     {
-        return Inertia::render('BaseUi/UiGeneral/UiGeneral');
+        return Inertia::render('templates/BaseUi/UiGeneral/UiGeneral');
     }
 
     public function ui_ribbons()
     {
-        return Inertia::render('BaseUi/UiRibbons/UiRibbons');
+        return Inertia::render('templates/BaseUi/UiRibbons/UiRibbons');
     }
 
     public function ui_utilities()
     {
-        return Inertia::render('BaseUi/UiUtilities/UiUtilities');
+        return Inertia::render('templates/BaseUi/UiUtilities/UiUtilities');
     }
 
     // advanced-ui
 
     public function advance_ui_scrollbar()
     {
-        return Inertia::render('AdvanceUi/UiScrollbar/UiScrollbar');
+        return Inertia::render('templates/AdvanceUi/UiScrollbar/UiScrollbar');
     }
 
     public function advance_ui_swiper()
     {
-        return Inertia::render('AdvanceUi/UiSwiperSlider/UiSwiperSlider');
+        return Inertia::render('templates/AdvanceUi/UiSwiperSlider/UiSwiperSlider');
     }
 
     public function advance_ui_ratings()
     {
-        return Inertia::render('AdvanceUi/UiRatings/UiRatings');
+        return Inertia::render('templates/AdvanceUi/UiRatings/UiRatings');
     }
 
     public function advance_ui_highlight()
     {
-        return Inertia::render('AdvanceUi/UiHighlight/UiHighlight');
+        return Inertia::render('templates/AdvanceUi/UiHighlight/UiHighlight');
     }
 
     // widgets
 
     public function widgets()
     {
-        return Inertia::render('Widgets/Index');
+        return Inertia::render('templates/Widgets/Index');
     }
 
     // forms
 
     public function forms_elements()
     {
-        return Inertia::render('Forms/BasicElements/BasicElements');
+        return Inertia::render('templates/Forms/BasicElements/BasicElements');
     }
 
     public function forms_select()
     {
-        return Inertia::render('Forms/FormSelect/FormSelect');
+        return Inertia::render('templates/Forms/FormSelect/FormSelect');
     }
 
     public function forms_checkboxes_radios()
     {
-        return Inertia::render('Forms/CheckboxAndRadio/CheckBoxAndRadio');
+        return Inertia::render('templates/Forms/CheckboxAndRadio/CheckBoxAndRadio');
     }
 
     public function forms_pickers()
     {
-        return Inertia::render('Forms/FormPickers/FormPickers');
+        return Inertia::render('templates/Forms/FormPickers/FormPickers');
     }
 
     public function forms_masks()
     {
-        return Inertia::render('Forms/Masks/Masks');
+        return Inertia::render('templates/Forms/Masks/Masks');
     }
 
     public function forms_advanced()
     {
-        return Inertia::render('Forms/FormAdvanced/FormAdvanced');
+        return Inertia::render('templates/Forms/FormAdvanced/FormAdvanced');
     }
 
     public function forms_range_sliders()
     {
-        return Inertia::render('Forms/FormRangeSlider/FormRangeSlider');
+        return Inertia::render('templates/Forms/FormRangeSlider/FormRangeSlider');
     }
 
     public function forms_validation()
     {
-        return Inertia::render('Forms/FormValidation/FormValidation');
+        return Inertia::render('templates/Forms/FormValidation/FormValidation');
     }
 
     public function forms_wizard()
     {
-        return Inertia::render('Forms/FormWizard/FormWizard');
+        return Inertia::render('templates/Forms/FormWizard/FormWizard');
     }
 
     public function forms_editors()
     {
-        return Inertia::render('Forms/FormEditor/FormEditor');
+        return Inertia::render('templates/Forms/FormEditor/FormEditor');
     }
 
     public function forms_file_uploads()
     {
-        return Inertia::render('Forms/FileUpload/FileUpload');
+        return Inertia::render('templates/Forms/FileUpload/FileUpload');
     }
 
     public function forms_layouts()
     {
-        return Inertia::render('Forms/FormLayouts/Formlayouts');
+        return Inertia::render('templates/Forms/FormLayouts/Formlayouts');
     }
 
     public function forms_select2()
     {
-        return Inertia::render('Forms/Select2/Select2');
+        return Inertia::render('templates/Forms/Select2/Select2');
     }
 
     // tables
 
     public function tables_basic()
     {
-        return Inertia::render('Tables/BasicTables/BasicTables');
+        return Inertia::render('templates/Tables/BasicTables/BasicTables');
     }
 
     public function tables_react()
     {
-        return Inertia::render('Tables/ReactTables/index');
+        return Inertia::render('templates/Tables/ReactTables/index');
     }
 
 
@@ -688,254 +688,254 @@ class VelzonRoutesController extends Controller
 
     public function icons_remix()
     {
-        return Inertia::render('Icons/RemixIcons/RemixIcons');
+        return Inertia::render('templates/Icons/RemixIcons/RemixIcons');
     }
 
     public function icons_boxicons()
     {
-        return Inertia::render('Icons/BoxIcons/BoxIcons');
+        return Inertia::render('templates/Icons/BoxIcons/BoxIcons');
     }
 
     public function icons_materialdesign()
     {
-        return Inertia::render('Icons/MaterialDesign/MaterialDesign');
+        return Inertia::render('templates/Icons/MaterialDesign/MaterialDesign');
     }
 
     public function icons_feather()
     {
-        return Inertia::render('Icons/FeatherIcons/FeatherIcons');
+        return Inertia::render('templates/Icons/FeatherIcons/FeatherIcons');
     }
 
     public function icons_lineawebsome()
     {
-        return Inertia::render('Icons/LineAwesomeIcons/LineAwesomeIcons');
+        return Inertia::render('templates/Icons/LineAwesomeIcons/LineAwesomeIcons');
     }
 
     public function icons_crypto()
     {
-        return Inertia::render('Icons/CryptoIcons/CryptoIcons');
+        return Inertia::render('templates/Icons/CryptoIcons/CryptoIcons');
     }
 
     // map
 
     public function maps_google()
     {
-        return Inertia::render('Maps/GoogleMaps');
+        return Inertia::render('templates/Maps/GoogleMaps');
     }
 
     // pages
 
     public function pages_starter()
     {
-        return Inertia::render('Pages/Starter/Starter');
+        return Inertia::render('templates/Pages/Starter/Starter');
     }
 
     public function pages_profile()
     {
-        return Inertia::render('Pages/Profile/SimplePage/SimplePage');
+        return Inertia::render('templates/Pages/Profile/SimplePage/SimplePage');
     }
 
     public function pages_profile_settings()
     {
-        return Inertia::render('Pages/Profile/Settings/Settings');
+        return Inertia::render('templates/Pages/Profile/Settings/Settings');
     }
 
     public function pages_team()
     {
-        return Inertia::render('Pages/Team/Team');
+        return Inertia::render('templates/Pages/Team/Team');
     }
 
     public function pages_timeline()
     {
-        return Inertia::render('Pages/Timeline/Timeline');
+        return Inertia::render('templates/Pages/Timeline/Timeline');
     }
 
     public function pages_faqs()
     {
-        return Inertia::render('Pages/Faqs/Faqs');
+        return Inertia::render('templates/Pages/Faqs/Faqs');
     }
 
     public function pages_gallery()
     {
-        return Inertia::render('Pages/Gallery/Gallery');
+        return Inertia::render('templates/Pages/Gallery/Gallery');
     }
 
     public function pages_pricing()
     {
-        return Inertia::render('Pages/Pricing/Pricing');
+        return Inertia::render('templates/Pages/Pricing/Pricing');
     }
 
     public function pages_search_results()
     {
-        return Inertia::render('Pages/SearchResults/SearchResults');
+        return Inertia::render('templates/Pages/SearchResults/SearchResults');
     }
 
     public function pages_sitemap()
     {
-        return Inertia::render('Pages/SiteMap/SiteMap');
+        return Inertia::render('templates/Pages/SiteMap/SiteMap');
     }
 
     public function pages_privacy_policy()
     {
-        return Inertia::render('Pages/PrivacyPolicy/PrivacyPolicy');
+        return Inertia::render('templates/Pages/PrivacyPolicy/PrivacyPolicy');
     }
 
     public function pages_terms_condition()
     {
-        return Inertia::render('Pages/TermsCondition/TermsCondition');
+        return Inertia::render('templates/Pages/TermsCondition/TermsCondition');
     }
 
     public function pages_blog_grid()
     {
-        return Inertia::render('Pages/Blogs/GridView/index');
+        return Inertia::render('templates/Pages/Blogs/GridView/index');
     }
 
     public function pages_blog_list()
     {
-        return Inertia::render('Pages/Blogs/ListView/index');
+        return Inertia::render('templates/Pages/Blogs/ListView/index');
     }
 
     public function pages_blog_overview()
     {
-        return Inertia::render('Pages/Blogs/Overview/index');
+        return Inertia::render('templates/Pages/Blogs/Overview/index');
     }
 
     public function pages_maintenance()
     {
-        return Inertia::render('Pages/Maintenance/Maintenance');
+        return Inertia::render('templates/Pages/Maintenance/Maintenance');
     }
 
     public function pages_coming_soon()
     {
-        return Inertia::render('Pages/ComingSoon/ComingSoon');
+        return Inertia::render('templates/Pages/ComingSoon/ComingSoon');
     }
 
     // auth inner
 
     public function auth_signin_basic()
     {
-        return Inertia::render('AuthInner/Login/BasicSignIn');
+        return Inertia::render('templates/AuthInner/Login/BasicSignIn');
     }
 
     public function auth_signin_cover()
     {
-        return Inertia::render('AuthInner/Login/CoverSignIn');
+        return Inertia::render('templates/AuthInner/Login/CoverSignIn');
     }
 
     public function auth_signup_basic()
     {
-        return Inertia::render('AuthInner/Register/BasicSignUp');
+        return Inertia::render('templates/AuthInner/Register/BasicSignUp');
     }
 
     public function auth_signup_cover()
     {
-        return Inertia::render('AuthInner/Register/CoverSignUp');
+        return Inertia::render('templates/AuthInner/Register/CoverSignUp');
     }
 
     public function auth_pass_reset_basic()
     {
-        return Inertia::render('AuthInner/PasswordReset/BasicPasswReset');
+        return Inertia::render('templates/AuthInner/PasswordReset/BasicPasswReset');
     }
 
     public function auth_pass_reset_cover()
     {
-        return Inertia::render('AuthInner/PasswordReset/CoverPasswReset');
+        return Inertia::render('templates/AuthInner/PasswordReset/CoverPasswReset');
     }
 
     public function auth_lockscreen_basic()
     {
-        return Inertia::render('AuthInner/LockScreen/BasicLockScr');
+        return Inertia::render('templates/AuthInner/LockScreen/BasicLockScr');
     }
 
     public function auth_lockscreen_cover()
     {
-        return Inertia::render('AuthInner/LockScreen/CoverLockScr');
+        return Inertia::render('templates/AuthInner/LockScreen/CoverLockScr');
     }
 
     public function auth_logout_basic()
     {
-        return Inertia::render('AuthInner/Logout/BasicLogout');
+        return Inertia::render('templates/AuthInner/Logout/BasicLogout');
     }
 
     public function auth_logout_cover()
     {
-        return Inertia::render('AuthInner/Logout/CoverLogout');
+        return Inertia::render('templates/AuthInner/Logout/CoverLogout');
     }
 
     public function auth_success_msg_basic()
     {
-        return Inertia::render('AuthInner/SuccessMessage/BasicSuccessMsg');
+        return Inertia::render('templates/AuthInner/SuccessMessage/BasicSuccessMsg');
     }
 
     public function auth_success_msg_cover()
     {
-        return Inertia::render('AuthInner/SuccessMessage/CoverSuccessMsg');
+        return Inertia::render('templates/AuthInner/SuccessMessage/CoverSuccessMsg');
     }
 
     public function auth_twostep_basic()
     {
-        return Inertia::render('AuthInner/TwoStepVerification/BasicTwosVerify');
+        return Inertia::render('templates/AuthInner/TwoStepVerification/BasicTwosVerify');
     }
 
     public function auth_twostep_cover()
     {
-        return Inertia::render('AuthInner/TwoStepVerification/CoverTwosVerify');
+        return Inertia::render('templates/AuthInner/TwoStepVerification/CoverTwosVerify');
     }
 
     public function auth_404_basic()
     {
-        return Inertia::render('AuthInner/Error/Basic404');
+        return Inertia::render('templates/AuthInner/Error/Basic404');
     }
 
     public function auth_404_cover()
     {
-        return Inertia::render('AuthInner/Error/Cover404');
+        return Inertia::render('templates/AuthInner/Error/Cover404');
     }
 
     public function auth_404_alt()
     {
-        return Inertia::render('AuthInner/Error/Alt404');
+        return Inertia::render('templates/AuthInner/Error/Alt404');
     }
 
     public function auth_500()
     {
-        return Inertia::render('AuthInner/Error/Error500');
+        return Inertia::render('templates/AuthInner/Error/Error500');
     }
 
     public function auth_pass_change_basic()
     {
-        return Inertia::render('AuthInner/PasswordCreate/BasicPasswCreate');
+        return Inertia::render('templates/AuthInner/PasswordCreate/BasicPasswCreate');
     }
 
     public function auth_pass_change_cover()
     {
-        return Inertia::render('AuthInner/PasswordCreate/CoverPasswCreate');
+        return Inertia::render('templates/AuthInner/PasswordCreate/CoverPasswCreate');
     }
 
     public function auth_offline()
     {
-        return Inertia::render('AuthInner/Error/Offlinepage');
+        return Inertia::render('templates/AuthInner/Error/Offlinepage');
     }
 
     // Landing
 
     public function landing()
     {
-        return Inertia::render('Landing/OnePage/index');
+        return Inertia::render('templates/Landing/OnePage/index');
     }
 
     public function nft_landing()
     {
-        return Inertia::render('Landing/NFTLanding/index');
+        return Inertia::render('templates/Landing/NFTLanding/index');
     }
 
     public function job_landing()
     {
-        return Inertia::render('Landing/JobLanding/index');
+        return Inertia::render('templates/Landing/JobLanding/index');
     }
 
     public function profile()
     {
-        return Inertia::render('Auth/user-profile');
+        return Inertia::render('templates/Auth/user-profile');
     }
 }

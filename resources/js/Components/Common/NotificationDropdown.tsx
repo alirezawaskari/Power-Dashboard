@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Col, Dropdown, Nav, NavLink, Row, Tab } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 //import images
 import avatar2 from "../../../images/users/avatar-2.jpg";
@@ -12,6 +13,7 @@ import bell from "../../../images/svg/bell.svg";
 import SimpleBar from "simplebar-react";
 
 const NotificationDropdown = () => {
+    const { t } = useTranslation();
     //Dropdown Toggle
     const [isNotificationDropdown, setIsNotificationDropdown] = useState(false);
 
@@ -26,16 +28,16 @@ const NotificationDropdown = () => {
                     <i className='bx bx-bell fs-22'></i>
                     <span
                         className="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">3<span
-                            className="visually-hidden">unread messages</span></span>
+                            className="visually-hidden">{t('unread messages')}</span></span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="dropdown-menu-lg dropdown-menu-end p-0">
                     <div className="p-3 bg-primary bg-pattern rounded-top">
                         <Row className="align-items-center">
                             <Col>
-                                <h6 className="m-0 fs-16 fw-semibold text-white"> Notifications </h6>
+                                <h6 className="m-0 fs-16 fw-semibold text-white"> {t('Notifications')} </h6>
                             </Col>
                             <div className="col-auto dropdown-tabs">
-                                <span className="badge bg-light-subtle fs-13 text-body"> 4 New</span>
+                                <span className="badge bg-light-subtle fs-13 text-body"> 4 {t('New')}</span>
                             </div>
                         </Row>
                     </div>
@@ -44,13 +46,13 @@ const NotificationDropdown = () => {
                         <div className="px-2 pt-2 bg-primary bg-pattern ">
                             <Nav className="nav-tabs nav-tabs-custom" role='tablist'>
                                 <Nav.Item className='waves-effect waves-light'>
-                                    <NavLink eventKey="all"> All (4) </NavLink>
+                                    <NavLink eventKey="all"> {t('All')} (4) </NavLink>
                                 </Nav.Item>
                                 <Nav.Item className='waves-effect waves-light'>
-                                    <NavLink eventKey="messages"> Meassages </NavLink>
+                                    <NavLink eventKey="messages"> {t('Messages')} </NavLink>
                                 </Nav.Item>
                                 <Nav.Item className='waves-effect waves-light'>
-                                    <NavLink eventKey="alerts" > Alerts </NavLink>
+                                    <NavLink eventKey="alerts" > {t('Alerts')} </NavLink>
                                 </Nav.Item>
                             </Nav>
                         </div>
@@ -69,12 +71,11 @@ const NotificationDropdown = () => {
                                             </div>
                                             <div className="flex-grow-1">
                                                 <a href="#" className="stretched-link">
-                                                    <h6 className="mt-0 mb-2 lh-base">Your <b>Elite</b> author Graphic
-                                                        Optimization <span className="text-secondary">reward</span> is ready!
+                                                    <h6 className="mt-0 mb-2 lh-base">{t('Your')} <b>{t('Elite')}</b> {t('author Graphic Optimization')} <span className="text-secondary">{t('reward')}</span> {t('is ready!')}
                                                     </h6>
                                                 </a>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> Just 30 sec ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('Just 30 sec ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -93,11 +94,10 @@ const NotificationDropdown = () => {
                                             <div className="flex-grow-1">
                                                 <Button variant="link" href="#" className="stretched-link p-0"><h6 className="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6></Button>
                                                 <div className="fs-13 text-muted">
-                                                    <p className="mb-1">Answered to your comment on the cash flow forecast's
-                                                        graph 🔔.</p>
+                                                    <p className="mb-1">{t('Answered to your comment on the cash flow forecast\'s graph')} 🔔.</p>
                                                 </div>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> 48 min ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('48 min ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -119,10 +119,10 @@ const NotificationDropdown = () => {
                                             </div>
                                             <div className="flex-grow-1">
                                                 <Button variant="link" href="#" className="stretched-link p-0">
-                                                    <h6 className="mt-0 mb-2 fs-13 lh-base">You have received <b className="text-success">20</b> new messages in the conversation</h6>
+                                                    <h6 className="mt-0 mb-2 fs-13 lh-base">{t('You have received')} <b className="text-success">20</b> {t('new messages in the conversation')}</h6>
                                                 </Button>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> 2 hrs ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('2 hrs ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -140,10 +140,10 @@ const NotificationDropdown = () => {
                                             <div className="flex-grow-1">
                                                 <Button variant="link" href="#" className="stretched-link p-0"><h6 className="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6></Button>
                                                 <div className="fs-13 text-muted">
-                                                    <p className="mb-1">We talked about a project on linkedin.</p>
+                                                    <p className="mb-1">{t('We talked about a project on linkedin.')}</p>
                                                 </div>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> 4 hrs ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('4 hrs ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -156,11 +156,10 @@ const NotificationDropdown = () => {
                                     </div>
 
                                     <div className="my-3 text-center">
-                                        <button type="button" className="btn btn-soft-success waves-effect waves-light">View
-                                            All Notifications <i className="ri-arrow-right-line align-middle"></i></button>
+                                        <button type="button" className="btn btn-soft-success waves-effect waves-light">{t('View All Notifications')}
+                                        </button>
                                     </div>
                                 </SimpleBar>
-
                             </Tab.Pane>
 
                             <Tab.Pane id="messages" eventKey="messages" className="py-2 ps-2">
@@ -172,10 +171,10 @@ const NotificationDropdown = () => {
                                             <div className="flex-grow-1">
                                                 <Button variant="link" href="#" className="stretched-link p-0"><h6 className="mt-0 mb-1 fs-13 fw-semibold">James Lemire</h6></Button>
                                                 <div className="fs-13 text-muted">
-                                                    <p className="mb-1">We talked about a project on linkedin.</p>
+                                                    <p className="mb-1">{t('We talked about a project on linkedin.')}</p>
                                                 </div>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> 30 min ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('30 min ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -194,11 +193,10 @@ const NotificationDropdown = () => {
                                             <div className="flex-grow-1">
                                                 <Button variant="link" href="#" className="stretched-link p-0"><h6 className="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6></Button>
                                                 <div className="fs-13 text-muted">
-                                                    <p className="mb-1">Answered to your comment on the cash flow forecast's
-                                                        graph 🔔.</p>
+                                                    <p className="mb-1">{t('Answered to your comment on the cash flow forecast\'s graph')} 🔔.</p>
                                                 </div>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> 2 hrs ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('2 hrs ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -217,10 +215,10 @@ const NotificationDropdown = () => {
                                             <div className="flex-grow-1">
                                                 <Button variant="link" href="#" className="stretched-link p-0"><h6 className="mt-0 mb-1 fs-13 fw-semibold">Kenneth Brown</h6></Button>
                                                 <div className="fs-13 text-muted">
-                                                    <p className="mb-1">Mentionned you in his comment on 📃 invoice #12501. </p>
+                                                    <p className="mb-1">{t('Mentionned you in his comment on 📃 invoice #12501.')} </p>
                                                 </div>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> 10 hrs ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('10 hrs ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -239,10 +237,10 @@ const NotificationDropdown = () => {
                                             <div className="flex-grow-1">
                                                 <Button variant="link" href="#" className="stretched-link p-0"><h6 className="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6></Button>
                                                 <div className="fs-13 text-muted">
-                                                    <p className="mb-1">We talked about a project on linkedin.</p>
+                                                    <p className="mb-1">{t('We talked about a project on linkedin.')}</p>
                                                 </div>
                                                 <p className="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                    <span><i className="mdi mdi-clock-outline"></i> 3 days ago</span>
+                                                    <span><i className="mdi mdi-clock-outline"></i> {t('3 days ago')}</span>
                                                 </p>
                                             </div>
                                             <div className="px-2 fs-15">
@@ -255,8 +253,7 @@ const NotificationDropdown = () => {
                                     </div>
 
                                     <div className="my-3 text-center">
-                                        <button type="button" className="btn btn-soft-success waves-effect waves-light">View
-                                            All Messages <i className="ri-arrow-right-line align-middle"></i></button>
+                                        <button type="button" className="btn btn-soft-success waves-effect waves-light">{t('View All Messages')} <i className="ri-arrow-right-line align-middle"></i></button>
                                     </div>
                                 </SimpleBar>
                             </Tab.Pane>
