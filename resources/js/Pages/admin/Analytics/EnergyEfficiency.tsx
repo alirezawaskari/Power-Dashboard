@@ -3,9 +3,9 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Head } from '@inertiajs/react';
 import Layout from '../../../Layouts';
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
-import { BasicPieCharts } from '../../templates/Charts/ApexCharts/PieCharts/PieCharts';
-import { BasicRadarCharts } from '../../templates/Charts/ApexCharts/RadarCharts/RadarCharts';
-import { BasicBarCharts } from '../../templates/Charts/ApexCharts/BarCharts/BarCharts';
+import { SimplePie as BasicPieCharts } from '../../../Components/Charts/PieCharts/PieCharts';
+import { SimpleRadar as BasicRadarCharts } from '../../../Components/Charts/RadarCharts/RadarCharts';
+import { Basic as BasicBarCharts } from '../../../Components/Charts/BarCharts/BarCharts';
 import { useTranslation } from 'react-i18next';
 
 const EnergyEfficiency = () => {

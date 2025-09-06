@@ -3,7 +3,7 @@ import { Card, Col, Dropdown, } from 'react-bootstrap';
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from 'react-i18next';
 import { createSelector } from 'reselect';
-import { ongetAudiencesSessionsChartsData } from '../../slices/thunk';
+import { ongetAudiencesSessionsChartsData } from '../../../slices/thunk';
 import { AudiencesSessionsCharts } from './DashboardAnalyticsCharts';
 
 const AudiencesSessions = () => {

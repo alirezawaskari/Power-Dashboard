@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
 import { Head } from '@inertiajs/react';
-import Layout from "../../Layouts"/Layout";
+import Layout from "../../../Layouts";
 import { useTranslation } from 'react-i18next';
 
 const Documents = () => {

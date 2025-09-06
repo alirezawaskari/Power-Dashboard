@@ -1,36 +1,4 @@
-FROM php:8.1-fpm-alpine
-
-# Install system dependencies
-RUN apk add --no-cache \
-    git \
-    curl \
-    libpng-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    postgresql-dev \
-    oniguruma-dev \
-    libzip-dev \
-    nodejs \
-    npm
-
-# Install PHP extensions
-RUN docker-php-ext-install \
-    pdo \
-    pdo_pgsql \
-    mbstring \
-    exif \
-    pcntl \
-    bcmath \
-    gd \
-    zip \
-    opcache
-
-# Install Redis extension
-RUN pecl install redis && docker-php-ext-enable redis
-
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+FROM composer:latest
 
 # Set working directory
 WORKDIR /var/www/html
@@ -38,13 +6,13 @@ WORKDIR /var/www/html
 # Copy composer files
 COPY composer.json composer.lock ./
 
-# Install PHP dependencies (include dev dependencies)
-RUN composer install --optimize-autoloader --no-interaction
+# Install PHP dependencies (ignore missing sockets extension)
+RUN composer install --optimize-autoloader --no-interaction --ignore-platform-req=ext-sockets
 
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
 
-# Install pnpm
+# Install pnpm (using npm that's already available)
 RUN npm install -g pnpm
 
 # Install Node.js dependencies
@@ -53,8 +21,8 @@ RUN pnpm install --frozen-lockfile
 # Copy application code
 COPY . .
 
-# Copy development environment
-COPY infra/env.development .env
+# Copy environment template
+COPY infra/env.template .env
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \

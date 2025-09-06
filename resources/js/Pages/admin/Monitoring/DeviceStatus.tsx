@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/react';
 import Layout from '../../../Layouts';
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
 import FeatherIcon from 'feather-icons-react';
-import { BasicLineCharts } from '../../templates/Charts/ApexCharts/LineCharts/LineCharts';
+import { BasicLineCharts } from '../../../Components/Charts/LineCharts/LineCharts';
 import { useTranslation } from 'react-i18next';
 
 const DeviceStatus = () => {

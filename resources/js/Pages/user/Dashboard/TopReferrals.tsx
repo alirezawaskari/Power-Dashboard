@@ -3,7 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 //import Images
-import illustrator from "../../../images/illustrator-1.png";
+import illustrator from "@assets/images/illustrator-1.png";
 import { Link } from '@inertiajs/react';
 
 const TopReferrals = () => {

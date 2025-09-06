@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import FeatherIcon from "feather-icons-react";
 
 //import images
-import illustarator from "../../../images/user-illustarator-2.png";
+import illustarator from "@assets/images/user-illustarator-2.png";
 import { Link } from '@inertiajs/react';
 
 const UpgradeAccountNotise = () => {

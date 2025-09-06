@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from 'react-i18next';
 import { AudiencesCharts } from './DashboardAnalyticsCharts';
 import { createSelector } from 'reselect';
-import { ongetAudiencesMetricsChartsData } from '../../slices/thunk';
+import { ongetAudiencesMetricsChartsData } from '../../../slices/thunk';
 
 const AudiencesMetrics = () => {
     const { t } = useTranslation();

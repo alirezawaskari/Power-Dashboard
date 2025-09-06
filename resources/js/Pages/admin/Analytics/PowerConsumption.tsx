@@ -3,8 +3,8 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { Head } from '@inertiajs/react';
 import Layout from '../../../Layouts';
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
-import { BasicLineCharts, ZoomableTimeseries, LinewithDataLabels } from '../../templates/Charts/ApexCharts/LineCharts/LineCharts';
-import { BasicAreaCharts } from '../../templates/Charts/ApexCharts/AreaCharts/AreaCharts';
+import { BasicLineCharts, ZoomableTimeseries, LinewithDataLabels } from '../../../Components/Charts/LineCharts/LineCharts';
+import { BasicAreaCharts } from '../../../Components/Charts/AreaCharts/AreaCharts';
 import { useTranslation } from 'react-i18next';
 
 const PowerConsumption = () => {

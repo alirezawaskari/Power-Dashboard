@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactApexChart from "react-apexcharts";
-import useChartColors from "../../Components/Common/useChartColors";
+import useChartColors from "../../../Components/Common/useChartColors";
 import { useTranslation } from 'react-i18next';
 
 const AudiencesCharts = ({ chartId, series } : any) => {

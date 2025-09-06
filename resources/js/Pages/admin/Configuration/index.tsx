@@ -9,15 +9,15 @@ import {
   Dropdown,
   Form,
 } from "react-bootstrap";
-import DeleteModal from "../../Components/Common/DeleteModal";
-import BreadCrumb from "../../Components/Common/BreadCrumb";
+import DeleteModal from "../../../Components/Common/DeleteModal";
+import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import Widgets from "./Widgets";
-import TableContainer from "../../Components/Common/TableContainer";
+import TableContainer from "../../../Components/Common/TableContainer";
 import { APIKeys, CreatedBy, CreatedDate, ExpiryDate, Name, Status } from "./APIKeyCol";
 import { useDispatch, useSelector } from "react-redux";
 import { Head, Link } from "@inertiajs/react";
-import Layout from "../../Layouts";
-import { fetchData } from "../../slices/thunk";
+import Layout from "../../../Layouts";
+import { fetchData } from "../../../slices/thunk";
 import { createSelector } from "@reduxjs/toolkit";
 import { useTranslation } from 'react-i18next';
 import FeatherIcon from 'feather-icons-react';

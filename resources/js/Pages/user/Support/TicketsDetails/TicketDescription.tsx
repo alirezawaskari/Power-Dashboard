@@ -5,11 +5,11 @@ import { Button, Card, CardBody, Col, Form, Row } from 'react-bootstrap';
 import SimpleBar from "simplebar-react";
 
 //import images
-import avatar8 from "../../../../images/users/avatar-8.jpg";
-import avatar10 from "../../../../images/users/avatar-10.jpg";
-import avatar6 from "../../../../images/users/avatar-6.jpg";
-import image4 from "../../../../images/small/img-4.jpg";
-import image5 from "../../../../images/small/img-5.jpg";
+import avatar8 from "@assets/images/users/avatar-8.jpg";
+import avatar10 from "@assets/images/users/avatar-10.jpg";
+import avatar6 from "@assets/images/users/avatar-6.jpg";
+import image4 from "@assets/images/small/img-4.jpg";
+import image5 from "@assets/images/small/img-5.jpg";
 import TicketCodeExample from './TicketsDetailsCode';
 import { Link } from '@inertiajs/react';
 

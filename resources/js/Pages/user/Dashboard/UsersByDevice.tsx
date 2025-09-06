@@ -9,7 +9,7 @@ import FeatherIcon from "feather-icons-react";
 
 import { UsersByDeviceCharts } from './DashboardAnalyticsCharts';
 import { createSelector } from 'reselect';
-import { ongetUserDeviceChartsData } from '../../slices/thunk';
+import { ongetUserDeviceChartsData } from '../../../slices/thunk';
 
 
 const UsersByDevice = () => {

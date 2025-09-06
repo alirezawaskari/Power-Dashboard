@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { CountriesCharts } from './DashboardAnalyticsCharts';
 
 import { VectorMap } from '@south-paw/react-vector-maps'
-import world from '../../common/world.svg.json';
+import world from '../../../common/world.svg.json';
 import { createSelector } from 'reselect';
-import { ongetAllData } from '../../slices/thunk';
+import { ongetAllData } from '../../../slices/thunk';
 
 const LiveUsers = () => {
     const { t } = useTranslation();

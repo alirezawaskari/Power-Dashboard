@@ -1,26 +1,4 @@
-FROM php:8.1-fpm-alpine
-
-# Install system dependencies (minimal)
-RUN apk add --no-cache \
-    git \
-    postgresql-dev \
-    oniguruma-dev \
-    libzip-dev
-
-# Install PHP extensions (only what workers need)
-RUN docker-php-ext-install \
-    pdo \
-    pdo_pgsql \
-    mbstring \
-    pcntl \
-    bcmath \
-    zip
-
-# Install Redis extension
-RUN pecl install redis && docker-php-ext-enable redis
-
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+FROM composer:latest
 
 # Set working directory
 WORKDIR /var/www/html
@@ -28,8 +6,8 @@ WORKDIR /var/www/html
 # Copy composer files
 COPY composer.json composer.lock ./
 
-# Install PHP dependencies (no dev dependencies for workers)
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Install PHP dependencies (ignore missing sockets extension)
+RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-req=ext-sockets
 
 # Copy application code
 COPY . .

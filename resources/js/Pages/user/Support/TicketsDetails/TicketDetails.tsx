@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, Col, Table } from 'react-bootstrap';
 
-import avatar4 from "../../../../images/users/avatar-4.jpg";
-import avatar10 from "../../../../images/users/avatar-10.jpg";
-import avatar3 from "../../../../images/users/avatar-3.jpg";
+import avatar4 from "@assets/images/users/avatar-4.jpg";
+import avatar10 from "@assets/images/users/avatar-10.jpg";
+import avatar3 from "@assets/images/users/avatar-3.jpg";
 import { Link } from '@inertiajs/react';
 
 const TicketDetails = () => {
