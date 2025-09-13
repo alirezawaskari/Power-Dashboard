@@ -27,7 +27,8 @@ RUN docker-php-ext-install \
     sodium \
     fileinfo \
     dom \
-    sockets
+    sockets \
+    tokenizer
 
 # Copy composer files and install dependencies
 COPY composer.json composer.lock ./

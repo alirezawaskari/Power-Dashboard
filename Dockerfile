@@ -29,7 +29,8 @@ RUN docker-php-ext-install \
     sodium \
     fileinfo \
     dom \
-    sockets
+    sockets \
+    tokenizer
 
 # Install pnpm
 RUN npm install -g pnpm
