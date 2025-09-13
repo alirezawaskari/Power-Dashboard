@@ -1,3 +1,5 @@
+name: power-dashboard
+
 services:
   app:
     build:
@@ -88,4 +90,4 @@ volumes:
 
 networks:
   power-dashboard:
-    driver: host
+    driver: bridge
