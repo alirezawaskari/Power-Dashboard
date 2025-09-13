@@ -26,16 +26,7 @@ RUN docker-php-ext-install \
     zip \
     sockets
 
-# Enable built-in extensions that are part of PHP core
-RUN echo "extension=pdo" > /usr/local/etc/php/conf.d/pdo.ini && \
-    echo "extension=session" > /usr/local/etc/php/conf.d/session.ini && \
-    echo "extension=sodium" > /usr/local/etc/php/conf.d/sodium.ini && \
-    echo "extension=fileinfo" > /usr/local/etc/php/conf.d/fileinfo.ini && \
-    echo "extension=dom" > /usr/local/etc/php/conf.d/dom.ini && \
-    echo "extension=tokenizer" > /usr/local/etc/php/conf.d/tokenizer.ini
-
-# Check PHP configuration and extensions
-RUN php --ini && echo "=== EXTENSIONS ===" && php -m
+# Extensions are already built-in and loaded, no need for ini files
 
 # Install pnpm
 RUN npm install -g pnpm
