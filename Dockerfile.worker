@@ -48,7 +48,7 @@ RUN composer config repo.packagist composer https://packagist.ir && \
     composer config platform.ext-sockets 8.3.24 && \
     composer config platform.ext-dom 8.3.24
 
-RUN composer update --no-dev --optimize-autoloader --no-scripts
+RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-reqs
 
 # Copy application code
 COPY . .
