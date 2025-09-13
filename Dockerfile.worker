@@ -18,27 +18,22 @@ RUN echo "https://repo.iut.ac.ir/repo/alpine/v3.22/main" > /etc/apk/repositories
     bison \
     re2c
 
-# Install PHP extensions
+# Install PHP extensions (only the ones that need to be compiled)
 RUN docker-php-ext-install \
-    pdo \
     pdo_pgsql \
     zip \
-    session \
-    sodium \
-    fileinfo \
-    dom \
     sockets
 
-# Enable all extensions manually
+# Enable built-in extensions that are part of PHP core
 RUN echo "extension=pdo" > /usr/local/etc/php/conf.d/pdo.ini && \
-    echo "extension=pdo_pgsql" > /usr/local/etc/php/conf.d/pdo_pgsql.ini && \
-    echo "extension=zip" > /usr/local/etc/php/conf.d/zip.ini && \
     echo "extension=session" > /usr/local/etc/php/conf.d/session.ini && \
     echo "extension=sodium" > /usr/local/etc/php/conf.d/sodium.ini && \
     echo "extension=fileinfo" > /usr/local/etc/php/conf.d/fileinfo.ini && \
     echo "extension=dom" > /usr/local/etc/php/conf.d/dom.ini && \
-    echo "extension=sockets" > /usr/local/etc/php/conf.d/sockets.ini && \
     echo "extension=tokenizer" > /usr/local/etc/php/conf.d/tokenizer.ini
+
+# Verify extensions are loaded
+RUN php -m
 
 # Copy composer files and install dependencies
 COPY composer.json composer.lock ./
