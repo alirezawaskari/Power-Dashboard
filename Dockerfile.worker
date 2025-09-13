@@ -35,13 +35,17 @@ RUN composer show --platform || true
 # Check what extensions Composer detects
 RUN php -r "echo 'Extensions detected by Composer:' . PHP_EOL; foreach (get_loaded_extensions() as \$ext) { echo '- ' . \$ext . PHP_EOL; }"
 
-# Force Composer to recognize the extensions by creating a platform config
-RUN composer config platform.ext-session 8.3.24 && \
-    composer config platform.ext-sodium 8.3.24 && \
-    composer config platform.ext-fileinfo 8.3.24 && \
-    composer config platform.ext-tokenizer 8.3.24 && \
-    composer config platform.ext-sockets 8.3.24 && \
-    composer config platform.ext-dom 8.3.24
+# Check if extensions are actually loaded with extension_loaded()
+RUN php -r "echo 'Extension check:' . PHP_EOL; echo 'session: ' . (extension_loaded('session') ? 'YES' : 'NO') . PHP_EOL; echo 'sodium: ' . (extension_loaded('sodium') ? 'YES' : 'NO') . PHP_EOL; echo 'fileinfo: ' . (extension_loaded('fileinfo') ? 'YES' : 'NO') . PHP_EOL; echo 'tokenizer: ' . (extension_loaded('tokenizer') ? 'YES' : 'NO') . PHP_EOL; echo 'sockets: ' . (extension_loaded('sockets') ? 'YES' : 'NO') . PHP_EOL; echo 'dom: ' . (extension_loaded('dom') ? 'YES' : 'NO') . PHP_EOL;"
+
+# Try to force Composer to see the extensions by creating a composer.json with platform requirements
+RUN composer config platform.php 8.3.24 && \
+    composer config platform.ext-session '*' && \
+    composer config platform.ext-sodium '*' && \
+    composer config platform.ext-fileinfo '*' && \
+    composer config platform.ext-tokenizer '*' && \
+    composer config platform.ext-sockets '*' && \
+    composer config platform.ext-dom '*'
 
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
