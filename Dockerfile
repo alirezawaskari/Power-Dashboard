@@ -31,8 +31,16 @@ RUN docker-php-ext-install \
     dom \
     sockets
 
-# Add tokenizer extension manually (it's built-in but needs to be enabled)
-RUN echo "extension=tokenizer" > /usr/local/etc/php/conf.d/tokenizer.ini
+# Enable all extensions manually
+RUN echo "extension=pdo" > /usr/local/etc/php/conf.d/pdo.ini && \
+    echo "extension=pdo_pgsql" > /usr/local/etc/php/conf.d/pdo_pgsql.ini && \
+    echo "extension=zip" > /usr/local/etc/php/conf.d/zip.ini && \
+    echo "extension=session" > /usr/local/etc/php/conf.d/session.ini && \
+    echo "extension=sodium" > /usr/local/etc/php/conf.d/sodium.ini && \
+    echo "extension=fileinfo" > /usr/local/etc/php/conf.d/fileinfo.ini && \
+    echo "extension=dom" > /usr/local/etc/php/conf.d/dom.ini && \
+    echo "extension=sockets" > /usr/local/etc/php/conf.d/sockets.ini && \
+    echo "extension=tokenizer" > /usr/local/etc/php/conf.d/tokenizer.ini
 
 # Install pnpm
 RUN npm install -g pnpm
