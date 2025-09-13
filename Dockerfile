@@ -37,7 +37,7 @@ COPY composer.json composer.lock ./
 # Debug: Check what Composer sees in FPM
 RUN composer show --platform || true
 
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-reqs
 
 # Copy package files and install dependencies
 COPY package.json pnpm-lock.yaml ./
