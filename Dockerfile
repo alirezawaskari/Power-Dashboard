@@ -43,15 +43,14 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platfo
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-# Copy application code
-COPY . .
+# Copy application code with proper ownership
+COPY --chown=www-data:www-data . .
 
 # Build frontend assets
 RUN pnpm run build
 
-# Set permissions
-RUN chown -R www-data:www-data /app \
-    && chmod -R 755 /app/storage \
+# Set permissions only for specific directories
+RUN chmod -R 755 /app/storage \
     && chmod -R 755 /app/bootstrap/cache
 
 EXPOSE 9000

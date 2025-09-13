@@ -50,12 +50,11 @@ RUN composer config repo.packagist composer https://packagist.ir && \
 
 RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-reqs
 
-# Copy application code
-COPY . .
+# Copy application code with proper ownership
+COPY --chown=www-data:www-data . .
 
-# Set permissions
-RUN chown -R www-data:www-data /app \
-    && chmod -R 755 /app/storage \
+# Set permissions only for specific directories
+RUN chmod -R 755 /app/storage \
     && chmod -R 755 /app/bootstrap/cache
 
 CMD ["sh", "-c", "php artisan migrate --force && php artisan queue:work --verbose --tries=3 --timeout=90"]
