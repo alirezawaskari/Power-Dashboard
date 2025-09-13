@@ -3,7 +3,8 @@ FROM php:8.2-fpm-alpine
 WORKDIR /app
 
 # Install system dependencies
-RUN apk update && apk add --no-cache \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirror.yandex.ru\/mirrors\/alpine/g' /etc/apk/repositories && \
+    apk update && apk add --no-cache \
     nodejs \
     npm \
     composer \
