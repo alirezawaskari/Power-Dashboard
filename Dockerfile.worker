@@ -1,0 +1,40 @@
+FROM php:8.2-cli-alpine
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apk add --no-cache \
+    composer \
+    postgresql-dev \
+    libsodium-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    git \
+    linux-headers
+
+# Install PHP extensions
+RUN docker-php-ext-install \
+    pdo \
+    pdo_pgsql \
+    zip \
+    session \
+    sodium \
+    fileinfo \
+    tokenizer \
+    dom \
+    sockets
+
+# Copy composer files and install dependencies
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --optimize-autoloader --no-scripts
+
+# Copy application code
+COPY . .
+
+# Set permissions
+RUN chown -R www-data:www-data /app \
+    && chmod -R 755 /app/storage \
+    && chmod -R 755 /app/bootstrap/cache
+
+CMD ["sh", "-c", "php artisan migrate --force && php artisan queue:work --verbose --tries=3 --timeout=90"]
