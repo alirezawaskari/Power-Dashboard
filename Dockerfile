@@ -34,8 +34,8 @@ RUN echo "extension=pdo" > /usr/local/etc/php/conf.d/pdo.ini && \
     echo "extension=dom" > /usr/local/etc/php/conf.d/dom.ini && \
     echo "extension=tokenizer" > /usr/local/etc/php/conf.d/tokenizer.ini
 
-# Verify extensions are loaded
-RUN php -m
+# Check PHP configuration and extensions
+RUN php --ini && echo "=== EXTENSIONS ===" && php -m
 
 # Install pnpm
 RUN npm install -g pnpm
