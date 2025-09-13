@@ -30,7 +30,10 @@ RUN docker-php-ext-install \
 COPY composer.json composer.lock ./
 
 # Debug: Check what Composer sees
-RUN composer show --platform
+RUN composer show --platform || true
+
+# Check what extensions Composer detects
+RUN php -r "echo 'Extensions detected by Composer:' . PHP_EOL; foreach (get_loaded_extensions() as \$ext) { echo '- ' . \$ext . PHP_EOL; }"
 
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
