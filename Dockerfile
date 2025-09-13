@@ -31,12 +31,23 @@ RUN docker-php-ext-install \
     dom \
     sockets
 
+# Enable extensions
+RUN docker-php-ext-enable \
+    pdo \
+    pdo_pgsql \
+    zip \
+    session \
+    sodium \
+    fileinfo \
+    dom \
+    sockets
+
 # Install pnpm
 RUN npm install -g pnpm
 
 # Copy composer files and install dependencies
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-scripts --ignore-platform-req=ext-tokenizer
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Copy package files and install dependencies
 COPY package.json pnpm-lock.yaml ./
