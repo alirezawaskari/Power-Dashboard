@@ -40,12 +40,12 @@ RUN php -r "echo 'Extension check:' . PHP_EOL; echo 'session: ' . (extension_loa
 
 # Try to force Composer to see the extensions by creating a composer.json with platform requirements
 RUN composer config platform.php 8.3.24 && \
-    composer config platform.ext-session '*' && \
-    composer config platform.ext-sodium '*' && \
-    composer config platform.ext-fileinfo '*' && \
-    composer config platform.ext-tokenizer '*' && \
-    composer config platform.ext-sockets '*' && \
-    composer config platform.ext-dom '*'
+    composer config platform.ext-session 8.3.24 && \
+    composer config platform.ext-sodium 8.3.24 && \
+    composer config platform.ext-fileinfo 8.3.24 && \
+    composer config platform.ext-tokenizer 8.3.24 && \
+    composer config platform.ext-sockets 8.3.24 && \
+    composer config platform.ext-dom 8.3.24
 
 RUN composer update --no-dev --optimize-autoloader --no-scripts
 
