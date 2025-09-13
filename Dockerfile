@@ -15,7 +15,9 @@ RUN echo "https://repo.iut.ac.ir/repo/alpine/v3.22/main" > /etc/apk/repositories
     zip \
     unzip \
     git \
-    linux-headers
+    linux-headers \
+    bison \
+    re2c
 
 # Install PHP extensions
 RUN docker-php-ext-install \
@@ -25,7 +27,6 @@ RUN docker-php-ext-install \
     session \
     sodium \
     fileinfo \
-    tokenizer \
     dom \
     sockets
 
