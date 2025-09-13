@@ -12,6 +12,7 @@ RUN echo "https://repo.iut.ac.ir/repo/alpine/v3.22/main" > /etc/apk/repositories
     postgresql-dev \
     libsodium-dev \
     libzip-dev \
+    libxml2-dev \
     zip \
     unzip \
     git \
