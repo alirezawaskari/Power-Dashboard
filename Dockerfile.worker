@@ -3,7 +3,7 @@ FROM php:8.2-cli-alpine
 WORKDIR /app
 
 # Install system dependencies
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirror.yandex.ru\/mirrors\/alpine/g' /etc/apk/repositories && \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirror.ams1.nl.leaseweb.net\/alpine/g' /etc/apk/repositories && \
     apk update && apk add --no-cache \
     composer \
     postgresql-dev \
