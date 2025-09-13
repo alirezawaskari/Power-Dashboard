@@ -33,6 +33,10 @@ RUN npm install -g pnpm
 
 # Copy composer files and install dependencies
 COPY composer.json composer.lock ./
+
+# Debug: Check what Composer sees in FPM
+RUN composer show --platform || true
+
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Copy package files and install dependencies

@@ -35,6 +35,14 @@ RUN composer show --platform || true
 # Check what extensions Composer detects
 RUN php -r "echo 'Extensions detected by Composer:' . PHP_EOL; foreach (get_loaded_extensions() as \$ext) { echo '- ' . \$ext . PHP_EOL; }"
 
+# Force Composer to recognize the extensions by creating a platform config
+RUN composer config platform.ext-session 8.3.24 && \
+    composer config platform.ext-sodium 8.3.24 && \
+    composer config platform.ext-fileinfo 8.3.24 && \
+    composer config platform.ext-tokenizer 8.3.24 && \
+    composer config platform.ext-sockets 8.3.24 && \
+    composer config platform.ext-dom 8.3.24
+
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Copy application code
