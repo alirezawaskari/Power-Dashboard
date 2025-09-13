@@ -3,7 +3,7 @@ FROM php:8.2-cli-alpine
 WORKDIR /app
 
 # Install system dependencies
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
     composer \
     postgresql-dev \
     libsodium-dev \
