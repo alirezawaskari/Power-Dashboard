@@ -56,10 +56,9 @@ docker-compose*.yml
 # Git
 .git
 .gitignore
+.github/
 
 # Development
-.github
-dev
 Homestead.yaml
 Homestead.json
 .vagrant
