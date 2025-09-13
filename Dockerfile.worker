@@ -28,6 +28,10 @@ RUN docker-php-ext-install \
 
 # Copy composer files and install dependencies
 COPY composer.json composer.lock ./
+
+# Debug: Check what Composer sees
+RUN composer show --platform
+
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Copy application code
