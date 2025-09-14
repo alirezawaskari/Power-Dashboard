@@ -36,7 +36,7 @@ jobs:
           # Pull latest code
           git pull origin main
           
-          # Generate complete .env file from secrets
+          # Generate complete .env file from secrets FIRST
           cat > .env << EOF
           APP_NAME=PowerDashboard
           APP_ENV=production
