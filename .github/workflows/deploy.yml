@@ -67,6 +67,7 @@ jobs:
           REDIS_HOST=power-dashboard-redis
           REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }}
           REDIS_PORT=6379
+          REDIS_CLIENT=predis
 
           RABBITMQ_HOST=power-dashboard-rabbitmq
           RABBITMQ_PORT=5672
