@@ -25,8 +25,9 @@ jobs:
         debug: true
         script: |
           echo "SSH connection successful!"
-          whoami
-          pwd
+          echo "Current user: $(whoami)"
+          echo "Current directory: $(pwd)"
+          echo "Home directory: $HOME"
           ls -la
 
     - name: Deploy to server
