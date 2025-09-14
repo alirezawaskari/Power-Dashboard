@@ -14,22 +14,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Test SSH connection
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        port: 22
-        timeout: 30s
-        debug: true
-        script: |
-          echo "SSH connection successful!"
-          echo "Current user: $(whoami)"
-          echo "Current directory: $(pwd)"
-          echo "Home directory: $HOME"
-          ls -la
-
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.3
       with:
@@ -39,8 +23,11 @@ jobs:
         port: 22
         timeout: 60s
         command_timeout: 30m
-        debug: true
         script: |
+          echo "SSH connection successful!"
+          echo "Current user: $(whoami)"
+          echo "Current directory: $(pwd)"
+          
           # Navigate to project directory
           cd ${{ secrets.DEPLOY_PATH }}
           
@@ -55,7 +42,7 @@ jobs:
           git pull origin main
           
           # Generate complete .env file from secrets FIRST
-          cat > .env << EOF
+          cat > .env << 'ENVEOF'
           APP_NAME=PowerDashboard
           APP_ENV=production
           APP_KEY=${{ secrets.APP_KEY }}
@@ -123,7 +110,7 @@ jobs:
           VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
           SANCTUM_STATEFUL_DOMAINS=${{ secrets.APP_URL }},localhost,127.0.0.1,127.0.0.1:8000,::1
-          EOF
+          ENVEOF
           
           # Stop current containers
           docker compose down
